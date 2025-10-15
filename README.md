@@ -11,6 +11,7 @@ At the moment this is useful for two things:
 
 In future, it might host more core assets.
 
+Pages are hosted at e.g `http://dc-shared-frontend-assets.s3-website.eu-west-2.amazonaws.com/maintenance/`
 
 ### Installing
 
