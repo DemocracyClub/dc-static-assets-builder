@@ -1,0 +1,30 @@
+{
+  "name": "dc-static-assets-builder",
+  "version": "1.0.0",
+  "description": "Static page builder using the DC design system",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "copy-assets": "mkdir -p src/assets/css src/assets/fonts src/assets/images && cp -r node_modules/dc-design-system/system/fonts/* src/assets/fonts/ && cp -r node_modules/dc-design-system/system/images/* src/assets/images/",
+    "build:sass": "sass src/scss/main.scss:src/assets/css/main.css --load-path=node_modules/dc-design-system/system --style=compressed",
+    "build:eleventy": "eleventy",
+    "build": "npm run clean && npm run copy-assets && npm run build:sass && npm run build:eleventy",
+    "watch:sass": "sass --watch src/scss/main.scss:src/assets/css/main.css --load-path=node_modules/dc-design-system/system",
+    "watch:eleventy": "eleventy --serve --port=8000",
+    "dev": "npm run copy-assets && npm run build:sass && npm-run-all --parallel watch:*",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "sass": "^1.75.0",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "dc-design-system": "git+https://github.com/DemocracyClub/design-system.git"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{{ title or "Democracy Club" }}</title>
+
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="{{ baseUrl }}assets/images/favicon.ico">
+
+</head>
+<body>
+<div class="ds-page">
+    <a class="ds-skip-link" href="#main">skip to content</a>
+    <header class="ds-header">
+        <div class="ds-logo">
+            <img src="{{ baseUrl }}assets/images/logo_icon.svg" alt="" height="100px"
+                 width="100px"/>
+            <span>democracy club</span>
+        </div>
+    </header>
+    <main id="main" tabindex="-1" class="ds-stack">
+
+
+        {{ content | safe }}
+    </main>
+</div>
+</body>
+</html>
